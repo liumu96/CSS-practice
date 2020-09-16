@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3D Rotation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      h3 {
+        font-size: 40px;
+        text-align: center;
+        line-height: 300px;
+        text-transform: uppercase;
+      }
+      .main {
+        width: 200px;
+        height: 300px;
+        position: absolute;
+        left: calc(50% - 100px);
+        top: calc(50% - 150px);
+        transform: rotate(90deg);
+      }
+      .content {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        animation: run 10s linear infinite;
+      }
+      .content .item {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border: 3px solid black;
+      }
+      .content .item img {
+        width: 100%;
+        height: 100%;
+      }
+      .content .item:nth-child(2) {
+        transform: rotateX(45deg);
+      }
+      .content .item:nth-child(3) {
+        transform: rotateX(-45deg);
+      }
+      .content .item:nth-child(4) {
+        transform: rotateX(90deg);
+      }
+      @keyframes run {
+        0% {
+          transform: perspective(1000px) rotateX(0deg);
+        }
+        100% {
+          transform: perspective(1000px) rotateX(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h3>3D Rotation</h3>
+    <div class="main">
+      <div class="content">
+        <div class="item"><img src="images/1.png" alt="" /></div>
+        <div class="item"><img src="images/2.png" alt="" /></div>
+        <div class="item"><img src="images/3.png" alt="" /></div>
+        <div class="item"><img src="images/4.png" alt="" /></div>
+        <div class="item"><img src="images/5.png" alt="" /></div>
+      </div>
+    </div>
+  </body>
+</html>
